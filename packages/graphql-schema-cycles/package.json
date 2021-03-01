@@ -1,0 +1,29 @@
+{
+  "name": "@namestys/graphql-schema-cycles",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "namesty",
+  "homepage": "",
+  "license": "ISC",
+  "main": "./build/index.js",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "rimraf ./build && tsc --project tsconfig.json",
+    "test": "jest --verbose=false"
+  },
+  "dependencies": {
+    "@namestys/graphql-to-json": "1.0.0",
+    "graphql": "15.5.0"
+  },
+  "devDependencies": {
+    "rimraf": "3.0.2",
+    "graphql-tag": "2.11.0",
+    "jest": "26.6.3",
+    "ts-jest": "26.1.4",
+    "ts-node": "8.10.2",
+    "typescript": "3.9.7",
+    "@types/jest": "^22.2.3"
+  }
+}

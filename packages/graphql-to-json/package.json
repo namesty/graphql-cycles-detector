@@ -1,0 +1,21 @@
+{
+  "name": "@namestys/graphql-to-json",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "namesty",
+  "homepage": "",
+  "license": "ISC",
+  "main": "./build/index.js",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "rimraf ./build && tsc --project tsconfig.json"
+  },
+  "devDependencies": {
+    "rimraf": "3.0.2",
+    "ts-jest": "26.1.4",
+    "ts-node": "8.10.2",
+    "typescript": "3.9.7"
+  }
+}

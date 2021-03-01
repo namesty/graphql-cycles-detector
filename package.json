@@ -1,0 +1,17 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "build": "lerna exec yarn build",
+    "test": "lerna exec --scope @namestys/graphql-schema-cycles yarn test",
+    "lerna:publish": "lerna publish"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  }
+}
