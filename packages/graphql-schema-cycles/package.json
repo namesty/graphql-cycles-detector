@@ -1,6 +1,6 @@
 {
-  "name": "@namestys/graphql-schema-cycles",
-  "version": "1.0.0-alpha.0",
+  "name": "graphql-schema-cycles",
+  "version": "1.0.0",
   "description": "> TODO: description",
   "author": "namesty",
   "homepage": "",
@@ -14,7 +14,7 @@
     "test": "jest --verbose=false"
   },
   "dependencies": {
-    "@namestys/graphql-to-json": "^1.0.0-alpha.0",
+    "graphql-to-json": "1.0.0",
     "graphql": "15.5.0"
   },
   "devDependencies": {

@@ -1,9 +1,10 @@
 {
   "name": "root",
   "private": true,
+  "author": "namesty",
   "scripts": {
     "build": "lerna exec yarn build",
-    "test": "lerna exec --scope @namestys/graphql-schema-cycles yarn test",
+    "test": "lerna exec --scope graphql-schema-cycles yarn test",
     "lerna:publish": "lerna publish"
   },
   "devDependencies": {

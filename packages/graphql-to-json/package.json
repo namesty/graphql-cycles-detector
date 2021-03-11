@@ -1,7 +1,6 @@
 {
-  "name": "@namestys/graphql-to-json",
-  "version": "1.0.0-alpha.0",
-  "description": "> TODO: description",
+  "name": "graphql-to-json",
+  "version": "1.0.0",
   "author": "namesty",
   "homepage": "",
   "license": "ISC",

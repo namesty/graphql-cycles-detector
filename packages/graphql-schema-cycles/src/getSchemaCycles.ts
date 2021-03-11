@@ -1,5 +1,5 @@
 import { DocumentNode, print } from "graphql";
-import { convert as convertSchemaToObj } from "@namestys/graphql-to-json";
+import { convert as convertSchemaToObj } from "graphql-to-json";
 import { convertToGraph } from "./graphify";
 import { detectCycles } from './detectCycles';
 
