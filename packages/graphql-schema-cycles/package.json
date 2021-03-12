@@ -1,6 +1,6 @@
 {
   "name": "graphql-schema-cycles",
-  "version": "1.0.2",
+  "version": "1.1.0-alpha.0",
   "description": "> TODO: description",
   "author": "namesty",
   "homepage": "",
@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "graphql": "15.5.0",
-    "graphql-json-transform": "^1.0.2"
+    "graphql-json-transform": "^1.1.0-alpha.0"
   },
   "devDependencies": {
     "@types/jest": "^22.2.3",
