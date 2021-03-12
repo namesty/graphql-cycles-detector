@@ -1,11 +1,11 @@
-# `graphql-to-json`
+# `graphql-json-transform`
 
 > TODO: description
 
 ## Usage
 
 ```
-const graphqlToJson = require('graphql-to-json');
+const graphqlToJson = require('graphql-json-transform');
 
 // TODO: DEMONSTRATE API
 ```

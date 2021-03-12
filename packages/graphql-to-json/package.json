@@ -1,5 +1,5 @@
 {
-  "name": "graphql-to-json",
+  "name": "graphql-json-transform",
   "version": "1.0.2",
   "author": "namesty",
   "homepage": "",
@@ -17,5 +17,5 @@
     "ts-node": "8.10.2",
     "typescript": "3.9.7"
   },
-  "gitHead": "5d5a44302a345b6eb1c28034ad8cc1ccd2ef35c3"
+  "gitHead": "f8b0d5b47d7d69f32f6727900e58817505c561a5"
 }
