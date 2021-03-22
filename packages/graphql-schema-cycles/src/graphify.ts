@@ -1,4 +1,4 @@
-export function convertToGraph(data: any) {
+export function convertToGraph(data: any, excludeList: string[]) {
 
   var Graph: any = [];
   var vertices = 0;
@@ -7,7 +7,6 @@ export function convertToGraph(data: any) {
   var total_vertices = 0;
 
   const graphQLTypes = ["Int", "String", "ID", "Boolean", "Float"];
-  const excludeList = ["Mutation","Query", "Subscription"];
 
   function addToGraph(target: any) {
     for ( var objectName in data[target] ) {

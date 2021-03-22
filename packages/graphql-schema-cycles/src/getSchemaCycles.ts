@@ -5,14 +5,17 @@ import { detectCycles } from './detectCycles';
 
 interface Options {
   detectOnlyOne: boolean
+  ignoreTypeNames: string[]
 }
+
+const DEFAULT_IGNORED_TYPENAMES = ["Mutation", "Subscription", "Query"];
 
 export const getSchemaCycles = (schema: DocumentNode | string, options?: Partial<Options>) => {
   const parsedSchema = typeof schema !== "string" ? print(schema) : schema;
   const detectOne = options? !!options.detectOnlyOne: false;
   
   const object = convertSchemaToObj(parsedSchema);
-  const { graph } = convertToGraph(object);
+  const { graph } = convertToGraph(object, options?.ignoreTypeNames || DEFAULT_IGNORED_TYPENAMES);
 
   const detectedCycles = detectCycles(graph, detectOne)
 
