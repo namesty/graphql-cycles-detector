@@ -1,4 +1,4 @@
-import { DocumentNode, print } from "graphql";
+import { DocumentNode, print, visit, parse } from "graphql";
 import { convert as convertSchemaToObj } from "graphql-json-transform";
 import { convertToGraph } from "./graphify";
 import { detectCycles } from './detectCycles';
@@ -10,12 +10,26 @@ interface Options {
 
 const DEFAULT_IGNORED_TYPENAMES = ["Mutation", "Subscription", "Query"];
 
+const removeDirectives = (schemaString: string): string => {
+  const schema = parse(schemaString);
+
+  const newSchema = visit(schema, {
+    Directive: () => {
+      return null
+    },
+  })
+
+  return print(newSchema)
+}
+
 export const getSchemaCycles = (schema: DocumentNode | string, options?: Partial<Options>) => {
   const parsedSchema = typeof schema !== "string" ? print(schema) : schema;
   const detectOne = options? !!options.detectOnlyOne: false;
-  
-  const object = convertSchemaToObj(parsedSchema);
-  const { graph } = convertToGraph(object, options?.ignoreTypeNames || DEFAULT_IGNORED_TYPENAMES);
+  const typesToIgnore = options?.ignoreTypeNames || DEFAULT_IGNORED_TYPENAMES
+
+  const schemaWithoutDirectives = removeDirectives(parsedSchema)
+  const object = convertSchemaToObj(schemaWithoutDirectives);
+  const { graph } = convertToGraph(object, typesToIgnore);
 
   const detectedCycles = detectCycles(graph, detectOne)
 
