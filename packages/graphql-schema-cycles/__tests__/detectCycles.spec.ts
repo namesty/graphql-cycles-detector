@@ -136,4 +136,22 @@ describe("Detect GraphQL Schema Cycles", () => {
     expect(cycles.length).toEqual(0)
     expect(foundCycle).toEqual(true)
   })
+
+  it("Allows for circular references on optional fields as they can be manually avoided", () => {
+    const schema = gql`
+      type A {
+        prop: B!
+      }
+
+      type B {
+        prop: A
+      }
+      `
+
+    const { cycleStrings, cycles, foundCycle } = getSchemaCycles(schema);
+
+    expect(cycleStrings.length).toEqual(0)
+    expect(cycles.length).toEqual(0)
+    expect(foundCycle).toEqual(false)
+  })
 })

@@ -17,6 +17,13 @@ const removeDirectives = (schemaString: string): string => {
     Directive: () => {
       return null
     },
+    FieldDefinition: (node) => {
+      if(node.type.kind === "NamedType") {
+        return null
+      }
+
+      return node
+    }
   })
 
   return print(newSchema)
