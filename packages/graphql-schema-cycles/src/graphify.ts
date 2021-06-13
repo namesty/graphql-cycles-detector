@@ -73,7 +73,7 @@ export function convertToGraph(data: any, excludeList: string[]) {
         var reference = Graph[vertex].referenceList[ref].reference;
         edges++;
         if (Graph[reference] === undefined) {
-          throw new Error("Field - reference not defined");
+          throw new Error(`Field - reference not defined "${reference}"`);
         }
         Graph[vertex].referenceList[ref].reference = Graph[reference];
       }
