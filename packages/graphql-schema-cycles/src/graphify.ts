@@ -50,13 +50,26 @@ export function convertToGraph(data: any, excludeList: string[]) {
             }
           }
         }
+        
         var tmpVertex: any = { vertexID: objectName };
         tmpVertex.vertexType = target;
         tmpVertex.referenceList = tmpReferenceList;
+
+        if(Graph[objectName]) {
+          tmpVertex.referenceList.push(...Graph[objectName].referenceList);
+        } 
+
         Graph[objectName] = tmpVertex;
 
         if (is_derived) {
           for (var der in derived_by) {
+            if(!Graph[derived_by[der]]) {
+              Graph[derived_by[der]] = {
+                  vertexID: derived_by[der],
+                  referenceList: []
+                }
+            } 
+
             Graph[derived_by[der]].referenceList.push({
               label: "#interface_ref",
               reference: objectName,
